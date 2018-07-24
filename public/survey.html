@@ -34,11 +34,11 @@
                 <h3>
                     <strong>About You</strong>
                 </h3>
-                <form class="form-group">
+                <form class="form-group" id="formName">
                     <label for="name">Name (Required)</label>
                     <input type="text" class="form-control" id="name" name="name" required>
                 </form>
-                <form class="form-group">
+                <form class="form-group" id="photoLink">
                     <label for="photo">Link to Photo Image (Required)</label>
                     <input type="text" class="form-control" id="photo" name="photo" required>
                 </form>
@@ -241,6 +241,8 @@
 
         $('#submit').on("click", function () {
 
+            if($("#name").val() && $("#photo").val()) {
+
             var userInput = {
                 name: $('#name').val().trim(),
                 photo: $('#photo').val().trim(),
@@ -252,8 +254,11 @@
                 $("#bestFriendImg").attr("src", data.photo);
                 $("#bestFriendModal").modal("show");
             });
-            // return false;
-        });
+
+            } else {
+                alert("Please fill out all forms to proceed.")
+        }
+    });
     </script>
 
 </body>
